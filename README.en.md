@@ -10,7 +10,7 @@ With this sample app, you can:
 - Mute / unmute audio
 - Switch speaker
 
-Agora Gaming SDK supports iOS / Android / Unity3d / Cocos2d. You can find demos of these platform here:
+Agora Gaming SDK supports iOS / Android / Unity / Cocos2d. You can find demos of these platform here:
 
 - [Hello-Gaming-Agora-iOS](https://github.com/AgoraIO/Hello-Gaming-Agora-iOS)
 - [Hello-Unity3D-Agora](https://github.com/AgoraIO/Hello-Unity3D-Agora)
