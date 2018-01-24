@@ -23,7 +23,8 @@ import io.agora.amg.R;
 import io.agora.amg.model.AGEventHandler;
 import io.agora.amg.model.ConstantApp;
 import io.agora.rtc.IRtcEngineEventHandler;
-import io.agora.rtc.RtcEngineForGaming;
+import io.agora.rtc.RtcEngine;
+
 
 public class ChatActivity extends BaseActivity implements AGEventHandler {
 
@@ -140,7 +141,7 @@ public class ChatActivity extends BaseActivity implements AGEventHandler {
     public void onSwitchSpeakerClicked(View view) {
         log.info("onSwitchSpeakerClicked " + view + " " + mAudioMuted + " " + mAudioRouting);
 
-        RtcEngineForGaming rtcEngine = rtcEngine();
+        RtcEngine rtcEngine = rtcEngine();
         rtcEngine.setEnableSpeakerphone(mAudioRouting != 3);
     }
 
@@ -181,7 +182,7 @@ public class ChatActivity extends BaseActivity implements AGEventHandler {
     public void onVoiceMuteClicked(View view) {
         log.info("onVoiceMuteClicked " + view + " audio_status: " + mAudioMuted);
 
-        RtcEngineForGaming rtcEngine = rtcEngine();
+        RtcEngine rtcEngine = rtcEngine();
         rtcEngine.muteLocalAudioStream(mAudioMuted = !mAudioMuted);
 
         ImageView iv = (ImageView) view;

@@ -18,7 +18,7 @@ import java.io.File;
 
 import io.agora.amg.R;
 import io.agora.rtc.Constants;
-import io.agora.rtc.RtcEngineForGaming;
+import io.agora.rtc.RtcEngine;
 
 public class WorkerThread extends Thread {
     private final static Logger log = LoggerFactory.getLogger(WorkerThread.class);
@@ -96,7 +96,7 @@ public class WorkerThread extends Thread {
         Looper.loop();
     }
 
-    private RtcEngineForGaming mRtcEngine;
+    private RtcEngine mRtcEngine;
 
     public final void joinChannel(final String channel, int uid) {
         if (Thread.currentThread() != this) {
@@ -110,7 +110,7 @@ public class WorkerThread extends Thread {
         }
 
         ensureRtcEngineReadyLock();
-        mRtcEngine.joinChannel(channel, "OpenVCallForGaming", uid);
+        mRtcEngine.joinChannel(null, channel, "OpenVCallForGaming", uid);
 
         mEngineConfig.mChannel = channel;
 
@@ -149,14 +149,14 @@ public class WorkerThread extends Thread {
         return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
     }
 
-    private RtcEngineForGaming ensureRtcEngineReadyLock() {
+    private RtcEngine ensureRtcEngineReadyLock() {
         if (mRtcEngine == null) {
             String appId = mContext.getString(R.string.private_app_id);
             if (TextUtils.isEmpty(appId)) {
                 throw new RuntimeException("NEED TO use your App ID, get your own ID at https://dashboard.agora.io/");
             }
             try {
-                mRtcEngine = RtcEngineForGaming.create(mContext, appId, mEngineEventHandler.mRtcEventHandler);
+                mRtcEngine = RtcEngine.create(mContext, appId, mEngineEventHandler.mRtcEventHandler);
             } catch (Exception e) {
                 log.error(Log.getStackTraceString(e));
                 throw new RuntimeException("NEED TO check rtc sdk init fatal error\n" + Log.getStackTraceString(e));
@@ -173,7 +173,7 @@ public class WorkerThread extends Thread {
         return mEngineEventHandler;
     }
 
-    public RtcEngineForGaming getRtcEngine() {
+    public RtcEngine getRtcEngine() {
         return mRtcEngine;
     }
 
