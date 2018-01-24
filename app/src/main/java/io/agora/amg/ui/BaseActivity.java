@@ -17,7 +17,7 @@ import io.agora.amg.AGApplication;
 import io.agora.amg.BuildConfig;
 import io.agora.amg.model.*;
 import io.agora.propeller.Constant;
-import io.agora.rtc.RtcEngineForGaming;
+import io.agora.rtc.RtcEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -98,7 +98,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         return true;
     }
 
-    protected RtcEngineForGaming rtcEngine() {
+    protected RtcEngine rtcEngine() {
         return ((AGApplication) getApplication()).getWorkerThread().getRtcEngine();
     }
 
