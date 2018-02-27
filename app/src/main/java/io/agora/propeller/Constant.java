@@ -1,6 +1,6 @@
 package io.agora.propeller;
 
-import io.agora.rtc.RtcEngineForGaming;
+import io.agora.rtc.RtcEngine;
 
 public class Constant {
 
@@ -9,7 +9,7 @@ public class Constant {
     static {
         String sdk = "undefined";
         try {
-            sdk = RtcEngineForGaming.getSdkVersion();
+            sdk = RtcEngine.getSdkVersion();
         } catch (Throwable e) {
         }
         MEDIA_SDK_VERSION = sdk;

@@ -3,7 +3,7 @@ package io.agora.amg.model;
 import android.content.Context;
 
 import io.agora.rtc.IRtcEngineEventHandler;
-import io.agora.rtc.IRtcEngineEventHandlerForGaming;
+import io.agora.rtc.IRtcEngineEventHandler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +31,7 @@ public class MyEngineEventHandler {
         this.mEventHandlerList.remove(handler);
     }
 
-    final IRtcEngineEventHandlerForGaming mRtcEventHandler = new IRtcEngineEventHandlerForGaming() {
+    final IRtcEngineEventHandler mRtcEventHandler = new IRtcEngineEventHandler() {
         private final Logger log = LoggerFactory.getLogger(this.getClass());
 
         @Override
